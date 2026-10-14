@@ -1,0 +1,34 @@
+| Workers | Strategy | Reservations | Reservations/s | p50 | p95 | p99 | max | Errors |
+|--------:|----------|-------------:|---------------:|----:|----:|----:|----:|-------:|
+| 1 | counter | 77970 | 2599 | 0.37 ms | 0.47 ms | 0.73 ms | 57.62 ms | 0 |
+| 1 | skip-locked | 63539 | 2118 | 0.46 ms | 0.57 ms | 0.79 ms | 34.86 ms | 0 |
+| 1 | skip-locked-sharded | 67083 | 2236 | 0.45 ms | 0.52 ms | 0.71 ms | 13.69 ms | 0 |
+| 1 | skip-locked-pool | 51573 | 1719 | 0.57 ms | 0.71 ms | 0.76 ms | 6.32 ms | 0 |
+| 10 | counter | 156500 | 5216 | 1.46 ms | 4.89 ms | 7.42 ms | 30.64 ms | 0 |
+| 10 | skip-locked | 283600 | 9453 | 1.01 ms | 1.52 ms | 1.97 ms | 8.59 ms | 0 |
+| 10 | skip-locked-sharded | 356283 | 11876 | 0.80 ms | 1.22 ms | 1.78 ms | 16.42 ms | 0 |
+| 10 | skip-locked-pool | 224893 | 7496 | 1.15 ms | 1.96 ms | 5.18 ms | 61.08 ms | 0 |
+| 25 | counter | 126792 | 4226 | 4.11 ms | 17.41 ms | 27.20 ms | 97.77 ms | 0 |
+| 25 | skip-locked | 347797 | 11593 | 1.97 ms | 3.72 ms | 5.15 ms | 24.93 ms | 0 |
+| 25 | skip-locked-sharded | 422242 | 14074 | 1.49 ms | 3.57 ms | 7.64 ms | 56.59 ms | 0 |
+| 25 | skip-locked-pool | 225124 | 7503 | 2.36 ms | 5.40 ms | 26.84 ms | 230.77 ms | 0 |
+| 50 | counter | 106773 | 3558 | 9.84 ms | 41.56 ms | 63.82 ms | 163.15 ms | 0 |
+| 50 | skip-locked | 319557 | 10651 | 3.94 ms | 9.96 ms | 15.98 ms | 84.10 ms | 0 |
+| 50 | skip-locked-sharded | 636517 | 21216 | 2.19 ms | 3.83 ms | 5.53 ms | 36.53 ms | 0 |
+| 50 | skip-locked-pool | 299670 | 9978 | 2.91 ms | 8.24 ms | 44.28 ms | 505.31 ms | 0 |
+| 100 | counter | 93264 | 3107 | 22.17 ms | 97.03 ms | 150.49 ms | 400.10 ms | 0 |
+| 100 | skip-locked | 216326 | 7209 | 6.26 ms | 53.94 ms | 123.12 ms | 724.70 ms | 0 |
+| 100 | skip-locked-sharded | 687133 | 22899 | 3.98 ms | 7.90 ms | 11.45 ms | 51.69 ms | 0 |
+| 100 | skip-locked-pool | 277315 | 9215 | 5.44 ms | 18.20 ms | 46.88 ms | 1748.55 ms | 0 |
+| 250 | counter | 80286 | 2670 | 64.19 ms | 284.28 ms | 433.46 ms | 1058.14 ms | 0 |
+| 250 | skip-locked | 91809 | 3051 | 15.47 ms | 364.05 ms | 1230.81 ms | 13100.13 ms | 0 |
+| 250 | skip-locked-sharded | 674765 | 22486 | 9.63 ms | 24.05 ms | 36.41 ms | 156.77 ms | 0 |
+| 250 | skip-locked-pool | 256101 | 8450 | 14.53 ms | 65.08 ms | 116.41 ms | 3660.38 ms | 0 |
+| 500 | counter | 56013 | 1857 | 182.91 ms | 821.84 ms | 1268.89 ms | 5038.04 ms | 0 |
+| 500 | skip-locked | 58386 | 1859 | 15.86 ms | 888.86 ms | 5193.45 ms | 31286.81 ms | 0 |
+| 500 | skip-locked-sharded | 614018 | 20461 | 18.92 ms | 62.60 ms | 102.78 ms | 433.43 ms | 0 |
+| 500 | skip-locked-pool | 231085 | 7340 | 15.74 ms | 74.06 ms | 206.91 ms | 12075.28 ms | 0 |
+| 1000 | counter | 44226 | 1450 | 472.20 ms | 2067.88 ms | 3198.61 ms | 9313.64 ms | 0 |
+| 1000 | skip-locked | 33651 | 1004 | 16.80 ms | 6743.44 ms | 19118.23 ms | 33420.89 ms | 0 |
+| 1000 | skip-locked-sharded | 512750 | 17069 | 38.95 ms | 171.87 ms | 317.15 ms | 1131.60 ms | 0 |
+| 1000 | skip-locked-pool | 67288 | 1941 | 15.52 ms | 180.67 ms | 20780.26 ms | 33845.35 ms | 0 |

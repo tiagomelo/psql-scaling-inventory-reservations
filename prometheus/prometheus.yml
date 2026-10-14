@@ -1,0 +1,9 @@
+scrape_configs:
+  - job_name: 'postgres'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['postgres_exporter:9187']
+  - job_name: 'inventory-bench'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['host.docker.internal:2112']

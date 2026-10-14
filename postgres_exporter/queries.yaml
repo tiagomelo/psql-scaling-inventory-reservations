@@ -1,0 +1,67 @@
+# Custom queries for postgres_exporter.
+# Each top-level key becomes a metric prefix, e.g. pg_wait_events_count.
+
+# What active client backends are waiting on right now.
+# Lock = waiting for a heavyweight lock, e.g. a row lock held by another transaction.
+pg_wait_events:
+  query: |
+    SELECT
+        coalesce(wait_event_type, 'CPU') AS wait_event_type,
+        coalesce(wait_event, 'CPU') AS wait_event,
+        count(*) AS count
+    FROM pg_stat_activity
+    WHERE datname = current_database()
+      AND backend_type = 'client backend'
+      AND state <> 'idle'
+      AND pid <> pg_backend_pid()
+    GROUP BY 1, 2
+  metrics:
+    - wait_event_type:
+        usage: "LABEL"
+        description: "Wait event type"
+    - wait_event:
+        usage: "LABEL"
+        description: "Wait event"
+    - count:
+        usage: "GAUGE"
+        description: "Number of non-idle client backends per wait event"
+
+# Total WAL ever written; rate() gives WAL bytes per second.
+pg_wal_position:
+  query: "SELECT pg_wal_lsn_diff(pg_current_wal_lsn(), '0/0') AS bytes"
+  metrics:
+    - bytes:
+        usage: "COUNTER"
+        description: "Current WAL position in bytes"
+
+# Size of the benchmark tables and their indexes.
+pg_benchmark_relation:
+  query: |
+    SELECT
+        relname AS relation,
+        pg_table_size(relid) AS table_bytes,
+        pg_indexes_size(relid) AS index_bytes,
+        n_live_tup AS live_tuples,
+        n_dead_tup AS dead_tuples,
+        autovacuum_count AS autovacuum_count
+    FROM pg_stat_user_tables
+    WHERE relname IN ('inventory', 'reservation_units', 'bucketed_reservation_units', 'reservation_pool', 'reserved_quantities')
+  metrics:
+    - relation:
+        usage: "LABEL"
+        description: "Table name"
+    - table_bytes:
+        usage: "GAUGE"
+        description: "Table size in bytes"
+    - index_bytes:
+        usage: "GAUGE"
+        description: "Size of all indexes of the table in bytes"
+    - live_tuples:
+        usage: "GAUGE"
+        description: "Estimated live tuples"
+    - dead_tuples:
+        usage: "GAUGE"
+        description: "Estimated dead tuples"
+    - autovacuum_count:
+        usage: "COUNTER"
+        description: "Times the table was vacuumed by autovacuum"

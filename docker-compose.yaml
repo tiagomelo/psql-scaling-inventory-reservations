@@ -1,0 +1,99 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: ${POSTGRES_DATABASE_CONTAINER_NAME}
+    command: postgres -c max_connections=$POSTGRES_MAX_CONNECTIONS
+    # Run an init process as PID 1. Without it the postmaster is PID 1 and
+    # inherits orphaned processes, e.g. a pg_isready left behind by a healthcheck
+    # that timed out under load. When that orphan exits, the postmaster sees an
+    # unknown child die and restarts the whole server in crash recovery.
+    init: true
+    # one backend process per connection; give shared memory some room
+    shm_size: 1g
+    env_file:
+      - .env
+    ports:
+      - "$POSTGRES_HOST_PORT:$POSTGRES_PORT"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
+      interval: $POSTGRES_HEALTH_CHECK_INTERVAL
+      timeout: $POSTGRES_HEALTH_CHECK_TIMEOUT
+      retries: $POSTGRES_HEALTH_CHECK_RETRIES
+    networks:
+      - psqldb-network
+
+  postgres_exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter
+    container_name: ${POSTGRES_EXPORTER_CONTAINER_NAME}
+    env_file:
+      - .env
+    environment:
+      DATA_SOURCE_URI: "postgres:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable"
+      DATA_SOURCE_USER: "${POSTGRES_USER}"
+      DATA_SOURCE_PASS: "${POSTGRES_PASSWORD}"
+      PG_EXPORTER_EXTEND_QUERY_PATH: /etc/postgres_exporter/queries.yaml
+    volumes:
+      - ./postgres_exporter/queries.yaml:/etc/postgres_exporter/queries.yaml:ro
+    ports:
+      - "$POSTGRES_EXPORTER_PORT:$POSTGRES_EXPORTER_PORT"
+    networks:
+      - psqldb-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: always
+
+  renderer:
+    image: grafana/grafana-image-renderer:latest
+    container_name: ${GRAFANA_RENDERER_CONTAINER_NAME}
+    environment:
+      AUTH_TOKEN: "${GF_RENDERING_RENDERER_TOKEN}"
+    expose:
+      - "$GRAFANA_RENDERING_PORT"
+    networks:
+      - psqldb-network
+    restart: on-failure
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ${GRAFANA_CONTAINER_NAME}
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - psqldb-network
+    depends_on:
+      - renderer
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ${PROMETHEUS_CONTAINER_NAME}
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    ports:
+      - "$PROMETHEUS_PORT:$PROMETHEUS_PORT"
+    # the benchmark runs on the host; let prometheus reach it on Linux too
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - psqldb-network
+    depends_on:
+      - postgres_exporter
+    restart: on-failure
+
+networks:
+  psqldb-network:
+    driver: bridge
+
+volumes:
+  grafana_data:
+  postgres_data:
+  prometheus_data:

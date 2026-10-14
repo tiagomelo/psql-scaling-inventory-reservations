@@ -1,0 +1,81 @@
+time=2026-10-08T14:43:45.849-03:00 level=INFO msg="exposing metrics" addr=:2112
+time=2026-10-08T14:43:45.849-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T14:43:45.897-03:00 level=INFO msg=running strategy=counter workers=1 operations=100000 duration=30s
+time=2026-10-08T14:44:15.909-03:00 level=INFO msg=done strategy=counter workers=1 elapsed=30s reservations=81497 reservations/s=2716 p50=348.625µs p95=446.834µs p99=620.25µs out_of_stock=0 errors=0 available=1918503
+time=2026-10-08T14:44:35.909-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T14:44:39.172-03:00 level=INFO msg=running strategy=skip-locked workers=1 operations=100000 duration=30s
+time=2026-10-08T14:45:09.215-03:00 level=INFO msg=done strategy=skip-locked workers=1 elapsed=30s reservations=63879 reservations/s=2129 p50=460.875µs p95=557.958µs p99=679.584µs out_of_stock=0 errors=0 available=1936121
+time=2026-10-08T14:45:29.217-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T14:45:33.307-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=1 operations=100000 duration=30s
+time=2026-10-08T14:46:03.367-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=1 elapsed=30s reservations=69976 reservations/s=2332 p50=415.583µs p95=509.167µs p99=641.333µs out_of_stock=0 errors=0 available=1930024
+time=2026-10-08T14:46:23.369-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T14:46:23.436-03:00 level=INFO msg=running strategy=skip-locked-pool workers=1 operations=100000 duration=30s
+time=2026-10-08T14:46:53.443-03:00 level=INFO msg=done strategy=skip-locked-pool workers=1 elapsed=30s reservations=52073 reservations/s=1735 p50=549.666µs p95=727.375µs p99=915.791µs out_of_stock=0 errors=0 available=1947927
+time=2026-10-08T14:47:13.444-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T14:47:13.502-03:00 level=INFO msg=running strategy=counter workers=10 operations=100000 duration=30s
+time=2026-10-08T14:47:43.513-03:00 level=INFO msg=done strategy=counter workers=10 elapsed=30.001s reservations=163329 reservations/s=5444 p50=1.418209ms p95=4.597375ms p99=6.871292ms out_of_stock=0 errors=0 available=1836671
+time=2026-10-08T14:48:03.515-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T14:48:06.513-03:00 level=INFO msg=running strategy=skip-locked workers=10 operations=100000 duration=30s
+time=2026-10-08T14:48:36.582-03:00 level=INFO msg=done strategy=skip-locked workers=10 elapsed=30.001s reservations=269219 reservations/s=8973 p50=1.011625ms p95=1.840208ms p99=2.97625ms out_of_stock=0 errors=0 available=1730781
+time=2026-10-08T14:48:56.587-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T14:49:00.798-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=10 operations=100000 duration=30s
+time=2026-10-08T14:49:30.866-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=10 elapsed=30s reservations=353973 reservations/s=11798 p50=817.125µs p95=1.156959ms p99=1.747667ms out_of_stock=0 errors=0 available=1646027
+time=2026-10-08T14:49:50.867-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T14:49:50.980-03:00 level=INFO msg=running strategy=skip-locked-pool workers=10 operations=100000 duration=30s
+time=2026-10-08T14:50:21.012-03:00 level=INFO msg=done strategy=skip-locked-pool workers=10 elapsed=30.001s reservations=229109 reservations/s=7636 p50=1.144666ms p95=1.885167ms p99=4.58125ms out_of_stock=0 errors=0 available=1770891
+time=2026-10-08T14:50:41.014-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T14:50:41.114-03:00 level=INFO msg=running strategy=counter workers=25 operations=100000 duration=30s
+time=2026-10-08T14:51:11.137-03:00 level=INFO msg=done strategy=counter workers=25 elapsed=30.004s reservations=133142 reservations/s=4437 p50=3.948958ms p95=16.49075ms p99=25.313625ms out_of_stock=0 errors=0 available=1866858
+time=2026-10-08T14:51:31.138-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T14:51:34.058-03:00 level=INFO msg=running strategy=skip-locked workers=25 operations=100000 duration=30s
+time=2026-10-08T14:52:04.152-03:00 level=INFO msg=done strategy=skip-locked workers=25 elapsed=30.003s reservations=349418 reservations/s=11646 p50=1.964167ms p95=3.688417ms p99=5.037875ms out_of_stock=0 errors=0 available=1650582
+time=2026-10-08T14:52:24.153-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T14:52:28.237-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=25 operations=100000 duration=30s
+time=2026-10-08T14:52:58.359-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=25 elapsed=30.001s reservations=548626 reservations/s=18286 p50=1.301958ms p95=1.971459ms p99=2.771583ms out_of_stock=0 errors=0 available=1451374
+time=2026-10-08T14:53:18.361-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T14:53:18.503-03:00 level=INFO msg=running strategy=skip-locked-pool workers=25 operations=100000 duration=30s
+time=2026-10-08T14:53:48.551-03:00 level=INFO msg=done strategy=skip-locked-pool workers=25 elapsed=30.016s reservations=231985 reservations/s=7728 p50=2.281583ms p95=5.33825ms p99=25.014084ms out_of_stock=0 errors=0 available=1768015
+time=2026-10-08T14:54:08.551-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T14:54:08.646-03:00 level=INFO msg=running strategy=counter workers=50 operations=100000 duration=30s
+time=2026-10-08T14:54:38.673-03:00 level=INFO msg=done strategy=counter workers=50 elapsed=30.009s reservations=113063 reservations/s=3767 p50=9.248333ms p95=39.156875ms p99=60.155625ms out_of_stock=0 errors=0 available=1886937
+time=2026-10-08T14:54:58.674-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T14:55:01.638-03:00 level=INFO msg=running strategy=skip-locked workers=50 operations=100000 duration=30s
+time=2026-10-08T14:55:31.719-03:00 level=INFO msg=done strategy=skip-locked workers=50 elapsed=30.004s reservations=320684 reservations/s=10687 p50=3.957ms p95=9.8045ms p99=15.782833ms out_of_stock=0 errors=0 available=1679316
+time=2026-10-08T14:55:51.721-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T14:55:55.900-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=50 operations=100000 duration=30s
+time=2026-10-08T14:56:26.024-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=50 elapsed=30.001s reservations=654707 reservations/s=21822 p50=2.15375ms p95=3.586416ms p99=5.115917ms out_of_stock=0 errors=0 available=1345293
+time=2026-10-08T14:56:46.026-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T14:56:46.280-03:00 level=INFO msg=running strategy=skip-locked-pool workers=50 operations=100000 duration=30s
+time=2026-10-08T14:57:16.393-03:00 level=INFO msg=done strategy=skip-locked-pool workers=50 elapsed=30.078s reservations=275958 reservations/s=9174 p50=3.149ms p95=9.065ms p99=47.152083ms out_of_stock=0 errors=0 available=1724042
+time=2026-10-08T14:57:36.393-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T14:57:36.651-03:00 level=INFO msg=running strategy=counter workers=100 operations=100000 duration=30s
+time=2026-10-08T14:58:06.689-03:00 level=INFO msg=done strategy=counter workers=100 elapsed=30.026s reservations=88201 reservations/s=2937 p50=23.422209ms p95=102.624042ms p99=157.774542ms out_of_stock=0 errors=0 available=1911799
+time=2026-10-08T14:58:26.689-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T14:58:30.115-03:00 level=INFO msg=running strategy=skip-locked workers=100 operations=100000 duration=30s
+time=2026-10-08T14:59:00.189-03:00 level=INFO msg=done strategy=skip-locked workers=100 elapsed=30.009s reservations=206599 reservations/s=6884 p50=6.769375ms p95=55.476792ms p99=127.006334ms out_of_stock=0 errors=0 available=1793401
+time=2026-10-08T14:59:20.191-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T14:59:25.036-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=100 operations=100000 duration=30s
+time=2026-10-08T14:59:55.172-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=100 elapsed=30.002s reservations=607660 reservations/s=20253 p50=4.402208ms p95=9.294291ms p99=14.199459ms out_of_stock=0 errors=0 available=1392340
+time=2026-10-08T15:00:15.174-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T15:00:15.345-03:00 level=INFO msg=running strategy=skip-locked-pool workers=100 operations=100000 duration=30s
+time=2026-10-08T15:00:45.419-03:00 level=INFO msg=done strategy=skip-locked-pool workers=100 elapsed=30.034s reservations=273063 reservations/s=9091 p50=5.553208ms p95=18.456834ms p99=43.660042ms out_of_stock=0 errors=0 available=1726937
+time=2026-10-08T15:01:05.420-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T15:01:05.574-03:00 level=INFO msg=running strategy=counter workers=250 operations=100000 duration=30s
+time=2026-10-08T15:01:35.665-03:00 level=INFO msg=done strategy=counter workers=250 elapsed=30.076s reservations=79355 reservations/s=2638 p50=64.782375ms p95=288.005291ms p99=440.480542ms out_of_stock=0 errors=0 available=1920645
+time=2026-10-08T15:09:45.169-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T15:09:48.469-03:00 level=INFO msg=running strategy=skip-locked workers=250 operations=100000 duration=30s
+time=2026-10-08T15:10:18.692-03:00 level=INFO msg=done strategy=skip-locked workers=250 elapsed=30.124s reservations=42473 reservations/s=1409 p50=68.660375ms p95=729.62ms p99=1.790311792s out_of_stock=0 errors=0 available=1957527
+time=2026-10-08T15:13:42.151-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-sharded stock=2000000
+time=2026-10-08T15:13:47.614-03:00 level=INFO msg=running strategy=skip-locked-sharded workers=250 operations=100000 duration=30s
+time=2026-10-08T15:17:13.534-03:00 level=INFO msg=done strategy=skip-locked-sharded workers=250 elapsed=30.029s reservations=293328 reservations/s=9768 p50=19.783833ms p95=69.01175ms p99=123.4665ms out_of_stock=0 errors=0 available=1706672
+time=2026-10-08T15:17:33.538-03:00 level=INFO msg="resetting dataset" strategy=skip-locked-pool stock=2000000
+time=2026-10-08T15:17:33.637-03:00 level=INFO msg=running strategy=skip-locked-pool workers=250 operations=100000 duration=30s
+time=2026-10-08T15:18:04.675-03:00 level=INFO msg=done strategy=skip-locked-pool workers=250 elapsed=30.314s reservations=134340 reservations/s=4431 p50=23.878291ms p95=136.23025ms p99=278.522333ms out_of_stock=0 errors=0 available=1865660
+time=2026-10-08T15:18:24.678-03:00 level=INFO msg="resetting dataset" strategy=counter stock=2000000
+time=2026-10-08T15:18:24.888-03:00 level=INFO msg=running strategy=counter workers=500 operations=100000 duration=30s
+time=2026-10-08T15:37:46.452-03:00 level=INFO msg=done strategy=counter workers=500 elapsed=30.627s reservations=33950 reservations/s=1108 p50=242.111916ms p95=1.605187458s p99=2.784219584s out_of_stock=0 errors=0 available=1966050
+time=2026-10-08T15:38:06.457-03:00 level=INFO msg="resetting dataset" strategy=skip-locked stock=2000000
+time=2026-10-08T15:38:10.669-03:00 level=INFO msg=running strategy=skip-locked workers=500 operations=100000 duration=30s
+time=2026-10-08T16:05:16.449-03:00 level=INFO msg=done strategy=skip-locked workers=500 elapsed=31.771s reservations=35026 reservations/s=1102 p50=22.306125ms p95=1.750243084s p99=8.598885125s out_of_stock=0 errors=0 available=1964974
+time=2026-10-08T16:05:32.648-03:00 level=ERROR msg="context canceled"
+make: *** [benchmark] Error 1
